@@ -15,7 +15,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 Place the `init.vim` and `plugins/` in `~/.config/nvim`. 
 
-Run `nvim` and run the `:Pluginstall` command to install all of the plugins.
+Run `nvim` and run the `:Pluginstall` command or shortcut `space-vr` to install all of the plugins.
 
 ## [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
