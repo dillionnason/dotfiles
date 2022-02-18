@@ -1,6 +1,22 @@
 # dotfiles
 
-Personal configuration files for a Linux desktop. This is all assuming an Arch based distribution and KDE Plasma. Eventually there will be a `setup.sh` to automate most of the process, but for now manual installation instructions are included below.
+Personal configuration files for a Linux desktop. This is all assuming an Arch based distribution and KDE Plasma. 
+
+### Setup script (not currently recommended)
+
+Use this method at your own discretion, this script has not been tested. As said above, it assumes you are using an Arch based distro and will not work otherwise. 
+
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/dillionnason/dotfiles/master/setup.sh)"
+```
+
+Manual install instructions are below, for now it is the recommend method.
+
+### Manual installation instructions (recommended)
+
+```sh
+git clone https://github.com/dillionnason/dotfiles
+```
 
 ## [Neovim](https://github.com/neovim/neovim) and [vim-plug](https://github.com/junegunn/vim-plug)
 
@@ -8,14 +24,9 @@ Personal configuration files for a Linux desktop. This is all assuming an Arch b
 sudo pacman -S neovim
 ```
 
-```sh 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
+Place the `init.vim` and `plugins/` in `~/.config/nvim` before first run.
 
-Place the `init.vim` and `plugins/` in `~/.config/nvim`. 
-
-Run `nvim` and run the `:Pluginstall` command or shortcut `space-vr` to install all of the plugins.
+On first run, vim-plug will run and check for missing plugins.
 
 ## [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
@@ -57,5 +68,5 @@ echo "plugins=( [plugins...] zsh-syntax-highlighting)" >> ${ZDOTDIR:-$HOME}/.zsh
 ## [exa](https://github.com/ogham/exa)
 
 ```sh
-pacman -S exa
+sudo pacman -S exa
 ```
