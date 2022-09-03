@@ -98,11 +98,21 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
 alias l="exa --long --header --group-directories-first --sort=ext"
 alias vim="nvim"
+alias godot="~/godot/Godot_v3.4.3-stable_x11.64"
+alias clion="~/Applications/clion/bin/clion.sh"
 
-
-# alias arm-none-eabi-gcc="~/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc"
+# PATH Exports
+# ARM tools 
 export PATH=$PATH:$HOME/gcc-arm-none-eabi-10-2020-q4-major/bin
+export DOWNGRADE_FROM_ALA=1
+
+# .NET SDK tools
+export PATH="$PATH:/home/dillionn/.dotnet/tools"
+
+# gem executables
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
