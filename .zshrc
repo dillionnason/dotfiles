@@ -97,10 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 alias zshconfig="nvim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 alias l="exa --long --header --group-directories-first --sort=ext"
 alias vim="nvim"
 alias godot="~/godot/Godot_v3.4.3-stable_x11.64"
@@ -116,3 +113,10 @@ export PATH="$PATH:/home/dillionn/.dotnet/tools"
 
 # gem executables
 export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+
+# PERL stuff for neovim
+PATH="/home/dillionn/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/dillionn/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/dillionn/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/dillionn/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/dillionn/perl5"; export PERL_MM_OPT;
