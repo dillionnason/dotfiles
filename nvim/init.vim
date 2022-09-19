@@ -29,6 +29,8 @@ nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 nmap <leader>vi :PlugInstall<cr>
 nmap <leader>fn :FloatermNew<cr>
 nmap <leader>ft :FloatermToggle<cr>
+nmap <leader>dv :DiffviewOpen<cr>
+nmap <leader>dq :DiffviewClose<cr>
 
 " allow gf to open non-existent files
 map gf :edit <cfile><cr>
