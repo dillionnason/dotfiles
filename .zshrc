@@ -73,6 +73,7 @@ ZSH_THEME="cypher"
 plugins=(
   git
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /Users/dillionnason/git-stuff/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias zshconfig="nvim ~/.zshrc"
 alias l="exa --long --header --group-directories-first --sort=ext"
