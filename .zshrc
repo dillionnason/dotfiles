@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dillionn/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gallifrey"
+ZSH_THEME="cypher"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,8 +70,10 @@ ZSH_THEME="gallifrey"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-plugins=(zsh-syntax-highlighting)
+plugins=(
+  git
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,26 +99,17 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+source /Users/dillionnason/git-stuff/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 alias zshconfig="nvim ~/.zshrc"
 alias l="exa --long --header --group-directories-first --sort=ext"
-alias vim="nvim"
-alias godot="~/godot/Godot_v3.4.3-stable_x11.64"
-alias clion="~/Applications/clion/bin/clion.sh"
+alias vi="nvim"
 
-# PATH Exports
-# ARM tools 
-export PATH=$PATH:$HOME/gcc-arm-none-eabi-10-2020-q4-major/bin
-export DOWNGRADE_FROM_ALA=1
-
-# .NET SDK tools
-export PATH="$PATH:/home/dillionn/.dotnet/tools"
-
-# gem executables
-export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
-
-# PERL stuff for neovim
-PATH="/home/dillionn/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/dillionn/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/dillionn/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/dillionn/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/dillionn/perl5"; export PERL_MM_OPT;
+PATH="/Users/dillionnason/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/dillionnason/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/dillionnason/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/dillionnason/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/dillionnason/perl5"; export PERL_MM_OPT;
