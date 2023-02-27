@@ -5,7 +5,7 @@
 # needed packages
 # this is assuming a completely blank slate
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-      sudo pacman -S zsh neovim exa universal-ctags ripgrep fd git;
+      sudo pacman -S --needed zsh neovim exa universal-ctags ripgrep fd git;
 elif [[ "$OSTYPE" == "darwin"* ]]; then
       command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew Now"; \
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; }
@@ -31,8 +31,8 @@ chsh -s $(which zsh)
 
 # install fonts
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-      git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts ~/.local/fonts/San-Francisco-Pro-Fonts
-      git clone https://github.com/epk/SF-Mono-Nerd-Font ~/.local/fonts/SF-Mono-Nerd-Font
-      chown -R 555 ~/.local/fonts
+      git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts ~/.local/share/fonts/San-Francisco-Pro-Fonts
+      git clone https://github.com/epk/SF-Mono-Nerd-Font ~/.local/share/fonts/SF-Mono-Nerd-Font
+      chmod -R 555 ~/.local/share/fonts
       fc-cache
 fi
