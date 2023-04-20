@@ -1,10 +1,10 @@
 # dotfiles
 
-Personal configuration files for Unix-like CLI.
+Personal configuration files for Unix-like CLI/Linux Desktop.
 
-## Setup script (not currently recommended)
+## Setup script
 
-Use this method at your own discretion, this script has not been tested. As said above, it assumes you are using an Arch based distro or macos and will not work otherwise. 
+Use this method at your own discretion, this script has not been throughly tested. As said above, it assumes you are using an Arch based distro or MacOS and will not work otherwise. 
 
 ```sh
 sh -c "$(curl -fsSL https://raw.github.com/dillionnason/dotfiles/master/setup.sh)"
@@ -12,53 +12,52 @@ sh -c "$(curl -fsSL https://raw.github.com/dillionnason/dotfiles/master/setup.sh
 
 Manual install instructions are below, for now it is the recommend method.
 
-## Manual installation instructions (recommended)
+## Manual installation instructions (Arch Linux)
 
-### 1. Clone the repository
+The below is setup à la carte. The first step will install all of the necessary packages at once, but it can be skipped and each section works standalone.
+
+### 1. Required Packages (or install seperately below)
+
+```sh
+sudo pacman -S --needed i3-wm xorg-xinit alacritty zsh neovim exa universal-ctags ripgrep fd git ttc-iosevka
+```
+
+### 2. Clone the repository
 
 ```sh
 git clone https://github.com/dillionnason/dotfiles ~/dotfiles
 ```
 
-### 2. [Neovim](https://github.com/neovim/neovim) and [vim-plug](https://github.com/junegunn/vim-plug)
-
-```sh
-sudo pacman -S neovim
-cp -R ~/dotfiles/nvim ~/.config/
-```
-
-On first run, vim-plug will install and check for missing plugins.
-
 ### 3. [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 ```sh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp ~/dotfiles/.zhsrc ~/.zshrc
+sudo pacman -S zsh exa
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/dotfile/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.oh-my-zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/dotfiles/.oh-my-zsh/plugins/zsh-autosuggestions
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+chsh -s $(which zsh)
 ```
 
-This will alias `nvim` to `vi` and `exa --long --header --group-directories-first --sort=ext` to `l`. Installation instructions for exa are found below.
-
-This also includes `export PATH=$PATH:$HOME/gcc-arm-eabi-10-2020-q4-major/bin`, which is used for compiling C programs on Arm integrated chips. This can be removed or modified to use a newer toolchain, as this is a fairly outdated toolchain for my specific machine.
-
-### 4. Zsh plugins
-
-These can be installed in several ways. Currently preffered method is to clone them into the oh-my-zsh plugins folder (they are already added to the .zshrc):
-
-```sh 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-```
-
-### 5. [exa](https://github.com/ogham/exa)
-
-If you prefer to not use `exa`, remove the `exa --long --header --group-directories-first --sort=ext` line from `~/.zshrc` and then skip this installation.
+### 4. [Neovim](https://github.com/neovim/neovim) and [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```sh
-sudo pacman -S exa
+sudo pacman -S --needed neovim universal-ctags ripgrep fd
+ln -s ~/dotfiles/nvim ~/.config/nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
-### 6. Cleaning up
+### 5. [i3](https://i3wm.org/)
 
 ```sh
-rm -r ~/dotfiles
+sudo pacman -S --needed i3-wm xorg-xinit ttc-iosevka
+ln -s ~/dotfiles/i3 ~/.config/i3
+```
+
+### 6. [alacritty](https://github.com/alacritty/alacritty)
+
+```sh
+sudo pacman -S --needed alacritty ttc-iosevka
+ln -s ~/dotfiles/alacritty ~/.config/alacritty
 ```

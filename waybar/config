@@ -1,0 +1,82 @@
+[
+    {
+        "name": "bar",
+        "layer": "top",
+        "position": "bottom",
+        "height": 30,
+
+        "modules-left": ["wlr/workspaces", "disk", "memory", "cpu", "network#vpn", "network#ethernet"],
+        "modules-center": ["hyprland/window"],
+        "modules-right": ["pulseaudio", "tray", "custom/weather", "clock"],
+
+        "hyprland/window": {
+            "format": "<b>{}</b>",
+            "separate-outputs": true
+        },
+        "clock": {
+            "interval": 1,
+            "format": "<b>{:%H:%M:%S}</b>",
+            "format-alt": "{:%Y-%m-%d}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        },
+        "cpu": {
+            "format": "CPU: {usage}%",
+            "tooltip": false
+        },
+        "disk": {
+            "format": "DISK: {}%",
+            "tooltip-format": "{used} / {total} used"
+        },
+        "memory": {
+            "format": "RAM: {}%",
+            "tooltip-format": "{used:0.1f}G / {total:0.1f}G used"
+        },
+        "network#ethernet": {
+            "interface": "enp*",
+            "format-ethernet": "E: ({bandwidthDownBytes})",
+            "format-disconnected": "E: ()",
+            "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+            "on-click": "nm-connection-editor"
+        },
+        "network#vpn": {
+            "interface": "tun0",
+            "format": "VPN: ({ipaddr})",
+            "format-disconnected": "VPN: ()",
+            "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+            "on-click": "nm-connection-editor"
+        },
+        "pulseaudio": {
+            "scroll-step": 1,
+            "format": "{icon} {volume}%{format_source}",
+            "format-bluetooth": "{icon} {volume}%{format_source}",
+            "format-bluetooth-muted": " {icon}{format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "  {volume}%",
+            "format-source-muted": " ",
+            "format-icons": {
+                "headphone": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol"
+        },
+        "custom/weather": {
+            "return-type": "json",
+            "exec": "sh $HOME/.config/waybar/scripts/weather.sh",
+            "interval": 300,
+            "on-click": "firefox https://wttr.in"
+        },
+        "wlr/workspaces": {
+            "format": "{icon}",
+            "on-click": "activate",
+            "sort-by-number": true
+        },
+        "tray": {
+            "icon-size": 21,
+            "spacing": 6,
+            "show-passive-items": true
+        }
+	},
+]
