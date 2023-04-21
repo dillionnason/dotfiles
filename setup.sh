@@ -25,9 +25,12 @@ ln -s $config/.zshrc $HOME/.zshrc
 chsh -s $(which zsh)
 
 # packer
-ln -s $config/nvim $HOME/.config/nvim
+cp -r $config/nvim $HOME/.config/
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \
  $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# emacs
+cp -r $config/emacs $HOME/.config/
 
 # Linux specific config
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
