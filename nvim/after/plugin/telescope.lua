@@ -26,3 +26,5 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>bi', builtin.builtin, {})
+
+vim.keymap.set('n', '<leader>m', ":lua require(\'telescope.builtin\').man_pages({ sections = { \"3\" },man_cmd = { \"apropos\", \".\" }})<cr>")
